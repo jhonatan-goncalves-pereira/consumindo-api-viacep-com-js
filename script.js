@@ -10,7 +10,7 @@ var consultaCep = fetch("https://viacep.com.br/ws/01001000/json/");
 
 async function consultarCep(){
     var reqCep = await consultaCep;
-    reqCepConvertida = reqCep.json();
+    reqCepConvertida = await reqCep.json();
     console.log(reqCepConvertida);
 }
 
