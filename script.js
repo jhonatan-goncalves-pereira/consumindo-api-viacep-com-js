@@ -22,7 +22,11 @@ async function consultarCep(cep){
     }
 }
 
-consultarCep(63036055);
+var cep = document.querySelector("#cep");
+
+cep.addEventListener("focusout", () =>{
+    consultarCep(cep.value);
+});
 
 
 /*
