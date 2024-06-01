@@ -9,6 +9,8 @@
 // .then(dados => console.log(dados)).finally();
 
 async function consultarCep(cep){
+    var mensagemErro = document.querySelector("#erro");
+    mensagemErro.innerHTML = "";
     try{
         var reqCep = await fetch(`https://viacep.com.br/ws/${cep}/json/`);
         reqCepConvertida = await reqCep.json();
@@ -20,6 +22,7 @@ async function consultarCep(cep){
         document.querySelector("#endereco").value = reqCepConvertida.logradouro;      
         document.querySelector("#estado").value = reqCepConvertida.uf; 
     }catch(erro){
+        mensagemErro.innerHTML = `<p>CEP INVÁLIDO</p>`
         console.log(erro);
     }
 }
