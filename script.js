@@ -1,6 +1,6 @@
 // fazendo requisição JS
 // use o HTTPS
-var consultaCep = fetch("https://viacep.com.br/ws/01001000/json/");
+//var consultaCep = fetch("https://viacep.com.br/ws/01001000/json/");
 // Retorno em Promise
 // promessa de algo a acontecer, tornando algo assíncrono em algo síncrono 
 // o uso do .then() duplo retorna promessas que então resultam em um retorno tangível
@@ -8,13 +8,21 @@ var consultaCep = fetch("https://viacep.com.br/ws/01001000/json/");
 // .then(resposta =>resposta.json())
 // .then(dados => console.log(dados)).finally();
 
-async function consultarCep(){
-    var reqCep = await consultaCep;
-    reqCepConvertida = await reqCep.json();
-    console.log(reqCepConvertida);
+async function consultarCep(cep){
+    try{
+        var reqCep = await fetch(`https://viacep.com.br/ws/${cep}/json/`);
+        reqCepConvertida = await reqCep.json();
+        if(reqCepConvertida.erro){
+            throw Error ("CEP Não encontrado");
+        }
+        console.log(reqCepConvertida);
+        return reqCepConvertida;
+    }catch(erro){
+        console.log(erro);
+    }
 }
 
-consultarCep();
+consultarCep(63036055);
 
 
 /*
