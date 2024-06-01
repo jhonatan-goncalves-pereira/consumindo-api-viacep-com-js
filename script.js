@@ -15,8 +15,10 @@ async function consultarCep(cep){
         if(reqCepConvertida.erro){
             throw Error ("CEP Não encontrado");
         }
-        console.log(reqCepConvertida);
-        return reqCepConvertida;
+        document.querySelector("#bairro").value = reqCepConvertida.bairro;
+        document.querySelector("#cidade").value = reqCepConvertida.localidade;
+        document.querySelector("#endereco").value = reqCepConvertida.logradouro;      
+        document.querySelector("#estado").value = reqCepConvertida.uf; 
     }catch(erro){
         console.log(erro);
     }
