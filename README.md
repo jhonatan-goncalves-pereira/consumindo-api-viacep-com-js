@@ -4,8 +4,12 @@
 Este projeto demonstra como consumir a API do ViaCEP para preencher automaticamente os campos de endereço em um formulário HTML, utilizando JavaScript. O objetivo é padronizar os endereços para facilitar a análise de dados.
 
 
-## Screenshots
+## DEPLOY
+
+[ACESSE AQUI](https://jhonatan-goncalves-pereira.github.io/consumindo-api-viacep-com-js/) 
+
 ![Screenshot da tela do formulário do AluraBooks](https://imgur.com/bupnUfx.png)
+
 
 ## Como Executar o Projeto
 
